@@ -4,7 +4,8 @@ import com.aries.dubbo.like.rpc.client.MatchUtil;
 import com.aries.dubbo.like.rpc.common.ResponseWrapper;
 import com.aries.dubbo.like.rpc.common.client.ServerRequest;
 import com.aries.dubbo.like.rpc.common.codec.ByteBufConst;
-import com.aries.dubbo.like.rpc.common.seriaze.SeriazeHelper;
+import com.aries.dubbo.like.rpc.common.enums.ResponseCodeEnum;
+import com.aries.dubbo.like.rpc.common.codec.SeriazeHelper;
 import com.aries.dubbo.like.rpc.common.server.ServerResponse;
 import com.aries.dubbo.like.rpc.common.util.IDGenerator;
 import com.aries.dubbo.like.rpc.service.util.discover.ServiceDiscoveryUtil;
@@ -69,7 +70,7 @@ public class ServiceProxy implements MethodInterceptor {
         //获取远程调用结果。
         ResponseWrapper responseWrapper = MatchUtil.get(serverRequest.getId());
         ServerResponse serverResponse = responseWrapper.getServerResponse();
-        if (serverResponse.getCode() != 200) {
+        if (serverResponse.getCode() != ResponseCodeEnum.OK.getCode()) {
             throw new RuntimeException("method:" + method.getName() +
                     "  invoke occurs an error:" + serverResponse.getErrorMessage());
         }

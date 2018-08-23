@@ -1,4 +1,4 @@
-package com.aries.dubbo.like.rpc.client.util;
+package com.aries.dubbo.like.rpc.common.util;
 
 import io.netty.channel.Channel;
 
@@ -16,5 +16,9 @@ public class AddressChannelMap {
 
     public static void add(String addr, Channel channel) {
         ADDRESS_CHANNEL_MAP.put(addr, channel);
+    }
+
+    public static Channel get(String addr) {
+        return ADDRESS_CHANNEL_MAP.get(addr);
     }
 }

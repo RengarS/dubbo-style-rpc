@@ -1,7 +1,7 @@
 package com.aries.dubbo.like.rpc.client.bootstrap;
 
 import com.aries.dubbo.like.rpc.client.handler.RpcClientHandler;
-import com.aries.dubbo.like.rpc.client.util.AddressChannelMap;
+import com.aries.dubbo.like.rpc.common.util.AddressChannelMap;
 import com.aries.dubbo.like.rpc.common.codec.ByteBufConst;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -14,16 +14,20 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.CountDownLatch;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: aries
  * Date: 2018/8/23
- * Description:
+ * Description: rpc client端启动类。主要是连接到远程服务。
  */
 @Slf4j
 public class ClientBootStrap {
 
-    public static void connect(String host, int port) throws Exception {
+    private CountDownLatch countDownLatch = new CountDownLatch(1);
+
+    public void connect(String host, int port) throws Exception {
         EventLoopGroup group = new NioEventLoopGroup(2);
         try {
             Bootstrap bootstrap = new Bootstrap();
@@ -40,6 +44,7 @@ public class ClientBootStrap {
                         }
                     });
             ChannelFuture future = bootstrap.connect(host, port).sync();
+            //将host和channel放在map中缓存。
             AddressChannelMap.add(host + port, future.channel());
             future.channel().closeFuture().sync();
         } catch (Exception e) {

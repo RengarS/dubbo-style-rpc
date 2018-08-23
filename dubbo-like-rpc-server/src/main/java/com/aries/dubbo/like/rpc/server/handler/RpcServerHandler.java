@@ -1,8 +1,9 @@
 package com.aries.dubbo.like.rpc.server.handler;
 
 import com.aries.dubbo.like.rpc.common.client.ServerRequest;
+import com.aries.dubbo.like.rpc.common.enums.ResponseCodeEnum;
 import com.aries.dubbo.like.rpc.common.execute.MethodExecutor;
-import com.aries.dubbo.like.rpc.common.seriaze.SeriazeHelper;
+import com.aries.dubbo.like.rpc.common.codec.SeriazeHelper;
 import com.aries.dubbo.like.rpc.common.server.ServerResponse;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -24,21 +25,25 @@ public class RpcServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        //读取ByteBuf并将数组反序列化成server request对象
         ByteBuf byteBuf = (ByteBuf) msg;
         byte[] bytes = new byte[byteBuf.readableBytes()];
         byteBuf.readBytes(bytes);
         ServerRequest serverRequest = SeriazeHelper.decodeServerRequest(bytes);
+        //构建server response对象
         ServerResponse serverResponse = new ServerResponse();
         serverResponse.setId(serverRequest.getId());
         try {
+            //执行
             Object result = MethodExecutor.getInstance().execute(serverRequest);
-            serverResponse.setCode(200);
+            serverResponse.setCode(ResponseCodeEnum.OK.getCode());
             serverResponse.setResponseData(result);
         } catch (Exception e) {
-            serverResponse.setCode(500);
+            serverResponse.setCode(ResponseCodeEnum.ERROR.getCode());
             serverResponse.setErrorMessage(e.getMessage());
         } finally {
-            ctx.channel().writeAndFlush(serverResponse);
+            //返回
+            ctx.channel().write(serverResponse);
         }
 
     }

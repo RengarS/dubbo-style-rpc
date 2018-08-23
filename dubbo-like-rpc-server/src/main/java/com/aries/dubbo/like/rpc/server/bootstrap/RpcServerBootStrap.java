@@ -3,7 +3,6 @@ package com.aries.dubbo.like.rpc.server.bootstrap;
 import com.aries.dubbo.like.rpc.common.codec.ByteBufConst;
 import com.aries.dubbo.like.rpc.server.handler.RpcServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;

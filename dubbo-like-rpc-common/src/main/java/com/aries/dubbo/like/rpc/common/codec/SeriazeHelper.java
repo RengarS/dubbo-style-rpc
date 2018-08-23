@@ -1,4 +1,4 @@
-package com.aries.dubbo.like.rpc.common.seriaze;
+package com.aries.dubbo.like.rpc.common.codec;
 
 import com.aries.dubbo.like.rpc.common.client.ServerRequest;
 import com.aries.dubbo.like.rpc.common.server.ServerResponse;
