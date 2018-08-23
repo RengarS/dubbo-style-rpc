@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dubbo-like-rpc-client/dubbo-like-rpc-client.iml" filepath="$PROJECT_DIR$/dubbo-like-rpc-client/dubbo-like-rpc-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-like-rpc-common/dubbo-like-rpc-common.iml" filepath="$PROJECT_DIR$/dubbo-like-rpc-common/dubbo-like-rpc-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-like-rpc-server/dubbo-like-rpc-server.iml" filepath="$PROJECT_DIR$/dubbo-like-rpc-server/dubbo-like-rpc-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-like-rpc-service-util/dubbo-like-rpc-service-util.iml" filepath="$PROJECT_DIR$/dubbo-like-rpc-service-util/dubbo-like-rpc-service-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-like-rpc-spring-boot-starter/dubbo-like-rpc-spring-boot-starter.iml" filepath="$PROJECT_DIR$/dubbo-like-rpc-spring-boot-starter/dubbo-like-rpc-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-style-rpc.iml" filepath="$PROJECT_DIR$/dubbo-style-rpc.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="commen" />
+        <module name="dubbo-like-rpc-client" />
+        <module name="dubbo-like-rpc-common" />
+        <module name="dubbo-like-rpc-server" />
+        <module name="dubbo-like-rpc-service-util" />
+        <module name="dubbo-like-rpc-spring-boot-starter" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="client" target="1.5" />
+      <module name="commen" target="1.5" />
+      <module name="dubbo-like-rpc-client" target="1.5" />
+      <module name="dubbo-like-rpc-common" target="1.5" />
+      <module name="dubbo-like-rpc-server" target="1.5" />
+      <module name="dubbo-like-rpc-service-util" target="1.5" />
+      <module name="dubbo-like-rpc-spring-boot-starter" target="1.5" />
+      <module name="dubbo-style-rpc" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

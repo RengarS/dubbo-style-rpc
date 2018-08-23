@@ -13,7 +13,17 @@
         <module>dubbo-like-rpc-server</module>
         <module>dubbo-like-rpc-common</module>
         <module>dubbo-like-rpc-service-util</module>
+        <module>dubbo-like-rpc-spring-boot-starter</module>
     </modules>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
